@@ -1,0 +1,45 @@
+{
+  "expo": {
+    "name": "eCabinet",
+    "owner": "wtx",
+    "slug": "eCabinet",
+    "version": "1.0.0",
+    "orientation": "landscape",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "backgroundColor": "#000000",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mobilitycare.ecabinet",
+      "icon": "./assets/icon.png"
+    },
+    "android": {
+      "package": "com.mobilitycare.ecabinet",
+      "icon": "./assets/icon.png",
+      "splash": {
+        "image": "./assets/splash.png",
+        "resizeMode": "contain",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "d28f3a22-62a0-4d05-a0e1-d1861c746ba5"
+      }
+    }
+  }
+}

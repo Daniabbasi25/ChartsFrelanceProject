@@ -1,0 +1,20 @@
+import { atom } from "jotai";
+
+export const UserState = atom(undefined);
+export const PatientState = atom(undefined);
+export const AuthState = atom(false);
+export const AccessTokenState = atom(undefined);
+export const ConnectedState = atom(false);
+export const HeartBeatState = atom(undefined);
+export const BloodPressureState = atom(undefined);
+export const TemperatureState = atom(undefined);
+export const WeightState = atom(undefined);
+export const OximeterState = atom(undefined);
+export const BloodGlucoseState = atom(undefined);
+export const UrineAnalysisState = atom(undefined);
+export const RespiratoryRateState = atom(undefined);
+export const OtoscopeStream = atom(undefined);
+export const StethoscopeStream = atom(undefined);
+export const DermatoscopeStream = atom(undefined);
+export const ECGMeasureState = atom(false);
+export const VideoState = atom(false);
