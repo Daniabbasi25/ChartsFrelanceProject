@@ -37,8 +37,6 @@ import DeviceMeasure from "../../components/DeviceMeasure/DeviceMeasure";
 import MobilitycareHeading from "../../components/MobilitycareHeading/MobilitycareHeading";
 import EcgChart from "../../components/Charts/ECG";
 import BulletChart from "../../components/Charts/BulletChart";
-import StackedBarChartWithOnPressExample from "../../components/Charts/BulletChart";
-
 let p = null;
 
 const Appointment = ({ navigation, route }) => {
@@ -126,6 +124,23 @@ const Appointment = ({ navigation, route }) => {
     console.log(status);
   }, [status])
 
+
+
+
+   const data = [
+     { label: "Jan", value: 500 },
+     { label: "Feb", value: 312 },
+     { label: "Mar", value: 424 },
+     { label: "Apr", value: 745 },
+     { label: "May", value: 89 },
+     { label: "Jun", value: 434 },
+     { label: "Jul", value: 650 },
+     { label: "Aug", value: 980 },
+     { label: "Sep", value: 123 },
+     { label: "Oct", value: 186 },
+     { label: "Nov", value: 689 },
+     { label: "Dec", value: 643 },
+   ];
   return (
     <ScrollView>
       <Box w="100%" h="100%" bg={"white"}>
@@ -288,9 +303,9 @@ const Appointment = ({ navigation, route }) => {
         </Box>
 
         <EcgChart />
+        {/* <BulletChart /> */}
+        {/* <MyBarChart data={data} round={100} unit="€" /> */}
         <BulletChart />
-
-       
       </Box>
     </ScrollView>
   );
