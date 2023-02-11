@@ -1,0 +1,90 @@
+<script src="//variancecharts.com/cdn/variance-noncommercial-standalone-f47ffcf.min.js" charset="UTF-8"></script>
+
+<!-- See Stephen Few's bullet chart spec: http://www.perceptualedge.com/articles/misc/Bullet_Graph_Design_Spec.pdf -->
+<style>
+#bullet-example {
+  width: 100%;
+  padding: 60px 80px 80px 80px;
+  font-family: Helvetica, Arial, sans-serif;
+}
+#bullet-example h3, #bullet-example h4 {
+  margin: 0;
+  text-align: center;
+}
+#bullet-example h4 {
+  margin-bottom: 40px;
+}
+#bullet-example chart {
+  height: 40px;
+  width: 80%;
+  margin-bottom: 60px;
+}
+#bullet-example chart.color {
+  margin-bottom: 0;
+}
+#bullet-example guide-x .tick {
+  border-width: 2px;
+  border-color: black;
+}
+#bullet-example dot.comparison {
+  height: 30px;
+  width: 4px;
+  top: calc(50% - (30px / 2));
+  background-color: black;
+  border-radius: 0;
+}
+#bullet-example bar {
+  position: absolute;
+  margin: 0;
+  border: none;
+}
+#bullet-example bar.good {
+  background-color: #e6e6e6;
+}
+#bullet-example bar.ok {
+  background-color: #cccccc;
+}
+#bullet-example bar.bad {
+  background-color: #b3b3b3;
+}
+#bullet-example bar.performance {
+  background-color: black;
+  height: 10px;
+  top: 15px;
+}
+#bullet-example .color .good {
+  background-color: #7dac9f;
+}
+#bullet-example .color .ok {
+  background-color: #e5b060;
+}
+#bullet-example .color .bad {
+  background-color: #dc7062;
+}
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
+}
+
+</style>
+<div id="bullet-example">
+
+  <!-- Color -->
+  <chart class="color"
+         scale-x-linear="0 300">
+    <guide-x ticks="0 50 100 150 200 250 300 500"></guide-x>
+    <bar class="good"
+         literal-length="300"></bar>
+    <bar class="ok"
+         literal-length="250"></bar>
+    <bar class="bad"
+         literal-length="200"></bar>
+    <bar class="performance"
+         literal-length="275"></bar>
+    <dot class="comparison"
+         literal-position="260"></dot>
+  </chart>
+
+</div>

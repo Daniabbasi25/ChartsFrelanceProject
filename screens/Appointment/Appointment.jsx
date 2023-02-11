@@ -302,7 +302,7 @@ const Appointment = ({ navigation, route }) => {
           </HStack>
         </Box>
 
-        <EcgChart />
+        {/* <EcgChart /> */}
         {/* <BulletChart /> */}
         {/* <MyBarChart data={data} round={100} unit="€" /> */}
         <BulletChart />
