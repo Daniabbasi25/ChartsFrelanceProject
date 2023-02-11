@@ -182,7 +182,7 @@ const MainApp = ({
               key={index}
               style={{
                 position: "absolute",
-                left: `${(index / 9) * 95}%`,
+                left: `${(index / 9) * 98}%`,
                 top: 50,
                 fontSize: 12,
               }}
@@ -218,7 +218,7 @@ const MainApp = ({
           ))}
         </View>
       </View>
-      <View>
+      <View style={{width:'20%'}}>
         <Text>{id}</Text>
       </View>
     </View>
