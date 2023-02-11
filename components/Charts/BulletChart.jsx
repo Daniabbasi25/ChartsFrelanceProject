@@ -95,7 +95,7 @@ const BulletChart = () => {
     // range of colors
     // array of colors
     // point where black line ends
-    <View style={{ flex: 1 }}>
+    <View style={{ flex:1,alignItems:'center' }}>
       {data.map((item) => {
         // {start,end,rangeofcolors,arrayofcolors,blacklinepoint}
         return (
@@ -106,6 +106,7 @@ const BulletChart = () => {
             arrayofcolors={item.colors}
             blacklinepoint={item.measures}
             markers={item.markers}
+            id={item.id}
           />
         );
       })}
@@ -128,6 +129,7 @@ const MainApp = ({
   arrayofcolors,
   blacklinepoint,
   markers,
+  id
 }) => {
   const [values, setValues] = useState(PointGenerator(start, end));
   const [range, setRange] = useState(sortrangeofcolors(rangeofcolors, values));
@@ -140,71 +142,88 @@ const MainApp = ({
   );
 
   console.log(sortrangeofcolors(rangeofcolors, values));
-  range.shift();
+  if (range.length > colors.length) range.shift();
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <View style={{ width: "100%", height: 50, backgroundColor: "lightgray" }}>
-        {range.map((rangeValue, index) => {
-          return (
-            <View
+    <View style={{flexDirection:'row',alignItems:'center' }}>
+      <View
+        style={{
+          flex: 1,
+          alignItems: "center",
+          justifyContent: "center",
+          marginVertical: 20,
+          width: "100%",
+        }}
+      >
+        <View
+          style={{ width: "100%", height: 50, backgroundColor: "lightgray" }}
+        >
+          {range.map((rangeValue, index) => {
+            return (
+              <View
+                key={index}
+                style={{
+                  position: "absolute",
+                  left: `${(values.indexOf(range[index - 1] || 0) / 9) * 100}%`,
+                  top: 0,
+                  bottom: 0,
+                  width: `${
+                    ((values.indexOf(range[index]) -
+                      values.indexOf(range[index - 1] || 0)) /
+                      9) *
+                    100
+                  }%`,
+                  backgroundColor: colors[index],
+                }}
+              />
+            );
+          })}
+          {values.map((value, index) => (
+            <Text
               key={index}
               style={{
                 position: "absolute",
-                left: `${(values.indexOf(range[index - 1] || 0) / 9) * 100}%`,
-                top: 0,
-                bottom: 0,
-                width: `${
-                  ((values.indexOf(range[index]) -
-                    values.indexOf(range[index - 1] || 0)) /
-                    9) *
-                  100
-                }%`,
-                backgroundColor: colors[index],
+                left: `${(index / 9) * 95}%`,
+                top: 50,
+                fontSize: 12,
               }}
-            />
-          );
-        })}
-        {values.map((value, index) => (
-          <Text
-            key={index}
-            style={{
-              position: "absolute",
-              left: `${(index / 9) * 95}%`,
-              top: 50,
-              fontSize: 12,
-            }}
-          >
-            {value}
-          </Text>
-        ))}
-        <View
-          style={{
-            position: "absolute",
-            left: 0,
-            top: "45%",
-            bottom: 0,
-            width: `${(values.indexOf(selectedValue) / 9) * 100}%`,
-            backgroundColor: "black",
-            zIndex: 1,
-            height: 10,
-          }}
-        />
-
-        {mymarkers.map((item) => (
+            >
+              {value}
+            </Text>
+          ))}
           <View
             style={{
               position: "absolute",
-              left: `${(values.indexOf(item) / 9) * 100}%`,
-              top: 0,
+              left: 0,
+              top: "45%",
               bottom: 0,
-              width: `1%`,
+              width: `${(values.indexOf(selectedValue) / 9) * 100}%`,
               backgroundColor: "black",
               zIndex: 1,
+              height: 10,
             }}
           />
-        ))}
+
+          {mymarkers.map((item) => (
+            <View
+              style={{
+                position: "absolute",
+                left: `${(values.indexOf(item) / 9) * 100}%`,
+                top: 0,
+                bottom: 0,
+                width: `1%`,
+                backgroundColor: "black",
+                zIndex: 1,
+              }}
+            />
+          ))}
+        </View>
+      </View>
+      <View>
+        <Text>{id}</Text>
       </View>
     </View>
+    
+
   );
 };
 
