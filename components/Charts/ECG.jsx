@@ -11,6 +11,22 @@ class EcgChart extends React.PureComponent {
     const axesSvg = { fontSize: 10, fill: "gray" };
     const verticalContentInset = { top: 10, bottom: 10 };
     const xAxisHeight = 30;
+const results={
+    labels: [0, 1, 2, 3] ,// Array of integer
+  LEAD_1: [{ x: 0, y: 1.1 }, {x: 1, y: 1.5}, ],// Array of {x: float, y: float}
+   LEAD_2 : [{  }],
+  LEAD_3 : [],
+  LEAD_aVR: [],
+  LEAD_aVL: [],
+  LEAD_aVF: [],
+  V1: [],
+  V2: [],
+  V3: [],
+  V4: [],
+  V5: [],
+  V6: [],
+}
+
 
     // Layout of an x-axis together with a y-axis is a problem that stems from flexbox.
     // All react-native-svg-charts components support full flexbox and therefore all
@@ -21,7 +37,7 @@ class EcgChart extends React.PureComponent {
     return (
       <View style={{ height: 200, padding: 20, flexDirection: "row" }}>
         <YAxis
-          data={data}
+          data={[-2.5,-2,-1.5,-1,0,1,2,2.5]}
           style={{ marginBottom: xAxisHeight }}
           contentInset={verticalContentInset}
           svg={axesSvg}
